@@ -1,6 +1,6 @@
 function Congrats(){
     return(
-        <div></div>
+        <div>Congrats</div>
     )
 }
 

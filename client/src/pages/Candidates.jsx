@@ -1,6 +1,6 @@
 function Candidates(){
     return(
-        <div></div>
+        <div>Candidates</div>
     )
 }
 

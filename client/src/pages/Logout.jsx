@@ -1,6 +1,6 @@
 function Logout(){
     return(
-        <div></div>
+        <div>Logout</div>
     )
 }
 
