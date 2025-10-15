@@ -17,7 +17,7 @@ function ErrorPage(){
         <section className="error-page">
             <div className="error-page-container">
                 <img src={image} alt="Page not found"/>
-                <h1>404</h1>
+                {/* <h1>404</h1> */}
                 <p>This page does not exist. You will be redirected to the previous page shortly.</p>
             </div>
         </section>

@@ -124,3 +124,17 @@ button {
 }
 
 /* ======================================================== ERROR PAGE ======================================================== */ 
+.error-page{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vh;
+    background: var(--color-gray-0);
+}
+.error-page-container{
+    width: 30rem;
+    text-align: center;
+}
+.error-page-container h1{
+    font-size: 4rem;
+}
