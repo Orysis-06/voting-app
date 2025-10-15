@@ -1,6 +1,6 @@
 function Elections(){
     return(
-        <div>Elections</div>
+        <div >Elections</div>
     )
 }
 

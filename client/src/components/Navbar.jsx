@@ -1,6 +1,57 @@
-function Navbar(){
-    return(
-        <div>Navbar</div>
+import { Link, NavLink } from "react-router-dom";
+import { use, useEffect, useState } from "react";
+
+import { IoIosMoon } from "react-icons/io";
+import { IoMdSunny } from "react-icons/io";
+import { HiOutlineBars3 } from "react-icons/hi2";
+import { AiOutlineClose } from "react-icons/ai";
+
+
+
+function Navbar() {
+
+    const [showNav, setShowNav] = useState(false);
+    const [darkTheme, setDarkTheme] = useState(localStorage.getItem('voting-app-theme'));
+
+    useEffect(() =>{
+        document.body.className = localStorage.getItem('voting-app-theme');
+    }, [darkTheme]);
+    
+    // function to close nav menu on small screens when menu link is clicked
+    const closeNavMenu = () => {
+        if(window.innerWidth < 600){
+            setShowNav(false);
+        }else{
+            setShowNav(true);
+        }
+    }
+
+    // function to change (toggle) theme
+    const changeThemeHandler = () =>{
+        if(localStorage.getItem('voting-app-theme') == 'dark'){
+           localStorage.setItem('voting-app-theme', ''); 
+        }else{
+             localStorage.setItem('voting-app-theme', 'dark'); 
+        }
+        setDarkTheme(localStorage.getItem('voting-app-theme'));
+    }
+
+    return (
+        <nav>
+            <div className="container nav-container">
+                <Link to="/" className="nav-logo">EGATOR</Link>
+                <div>
+                  {showNav &&  <menu>
+                        <NavLink to="/elections" onClick={closeNavMenu}>Elections</NavLink>
+                        <NavLink to="/results" onClick={closeNavMenu}>Results</NavLink>
+                        <NavLink to="/logout" onClick={closeNavMenu}>Logout</NavLink>
+                    </menu>}
+                    <button onClick={changeThemeHandler} className="theme-toggle-btn">{darkTheme ? <IoMdSunny/> :<IoIosMoon />}</button>
+                    <button onClick={() => setShowNav(!showNav)}         
+                    className="nav-toggle-btn">{showNav ? <AiOutlineClose /> : <HiOutlineBars3 /> }</button>
+                </div>
+            </div>
+        </nav>
     )
 }
 

@@ -35,6 +35,18 @@
     box-sizing: border-box;
 }
 
+.dark{
+    --color-gray-0: #0e0d14;
+    --color-gray-100: #2f2b42;
+    --color-gray-200: #45405e;
+    --color-gray-300: #7b7b7b;
+    --color-gray-400: #919191;
+    --color-gray-500: #a1a1a1;
+    --color-gray-600: #c0c0c0;
+    --color-gray-700: #e6e5e5;
+    --color-gray-800: #fafafa;
+    --color-gray-900: #fff;   
+}
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
@@ -128,7 +140,7 @@ button {
     display: grid;
     place-items: center;
     height: 100vh;
-    width: 100vh;
+    width: 100vw;
     background: var(--color-gray-0);
 }
 .error-page-container{
@@ -137,4 +149,97 @@ button {
 }
 .error-page-container h1{
     font-size: 4rem;
+}
+
+/* ======================================================== NAVBAR ======================================================== */ 
+nav{
+    background: var(--color-primary);
+    display: grid;
+    place-items: center;
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
+}
+.nav-container * {
+    color: white;
+}
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-container div{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+.nav-logo{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.nav-toggle-btn{
+    background: transparent;
+    font-size: 1.8rem;
+    display: none;
+}
+.nav-container a{
+    transition: var(--transition);
+}
+.nav-container a:hover{
+    color: var(--color-primary-variant);
+}
+.nav-container menu{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+.theme-toggle-btn{
+    background: transparent;
+    font-size: 1.5rem;
+    display: flex;
+    transition: var(--transition);
+}
+.theme-toggle-btn:hover{
+    opacity: 0.75;
+}
+
+/* ======================================================== MEDIA QUERIES ======================================================== */ 
+@media screen and (max-width: 600px) {
+    .container{
+        width: var(--container-w-sm);
+    }
+    nav{
+        height: 4rem;
+    }
+    .nav-container div{
+        gap: 3rem;
+    }
+    .nav-toggle-btn{
+        display: inline-block;
+    }
+    .nav-container menu{
+        position: fixed;
+        top: 4rem;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        width: 12rem;
+     
+    }
+    .nav-container menu a{
+        background: var(--color-gray-0);
+        color: var(--color-gray-900);
+        border-bottom: 1px solid var(--color-gray-200);
+        width: 100%;
+        display: grid;
+        place-content: center;
+        height: 4rem;
+        box-shadow: -2rem 4rem 2rem rgba(0, 0, 0, 0.1);
+    }
+    .error-page-container{
+        width: 100%;
+    }
 }
