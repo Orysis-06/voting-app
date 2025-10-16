@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { IoIosMoon } from "react-icons/io";
 import { IoMdSunny } from "react-icons/io";
@@ -16,6 +16,12 @@ function Navbar() {
     useEffect(() =>{
         document.body.className = localStorage.getItem('voting-app-theme');
     }, [darkTheme]);
+
+    useEffect(() => {
+        if(window.innerWidth > 600){
+            setShowNav(true);
+        }
+    }, []);
     
     // function to close nav menu on small screens when menu link is clicked
     const closeNavMenu = () => {

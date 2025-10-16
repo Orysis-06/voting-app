@@ -11,7 +11,6 @@ import Candidates from "./pages/Candidates";
 import Congrats from "./pages/Congrats";
 import Logout from "./pages/Logout";
 
-
 const router = createBrowserRouter([
   {
     path: '/',
